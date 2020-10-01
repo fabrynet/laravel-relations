@@ -13,4 +13,12 @@ class Employee extends Model
       'private_code',
       'location_id'
     ];
+    // relazione One To Many (Inversa) employees -> locations
+    public function location() {
+      return $this -> belongsTo(Location::class);
+    }
+    // relazione Many To Many employees <-> tasks
+    public function tasks() {
+      return $this -> belongsToMany(Task::class);
+    }
 }

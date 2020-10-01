@@ -12,4 +12,8 @@ class Task extends Model
       'end_date',
       'description'
     ];
+    // relazione Many To Many tasks <-> employees
+    public function employees() {
+      return $this -> belongsToMany(Employee::class);
+    }
 }

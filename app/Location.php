@@ -12,4 +12,8 @@ class Location extends Model
       'city',
       'state'
     ];
+    // relazione One To Many locations -> employees
+    public function employees() {
+      return $this -> hasMany(Employee::class);
+    }
 }
