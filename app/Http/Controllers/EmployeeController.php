@@ -35,7 +35,25 @@ class EmployeeController extends Controller
       return redirect() -> route('employees.index');
 
     }
-    public function edit() {
+    public function edit($id) {
+      $emp = Employee::findOrFail($id);
+      $locs = Location::all();
+      return view('employees.edit', compact('emp','locs'));
+    }
+    public function update(Request $request, $id) {
+
+      $validatedData = $request -> validate([
+        'firstname' => 'bail|required|alpha|max:60',
+        'lastname' => 'required|alpha|max:60',
+        'date_of_birth' => 'required|date',
+        'private_code' => 'required|digits_between:1,15',
+        ]);
+
+      $data = $request -> all();
+      $emp = Employee::findOrFail($id);
+      $emp -> update($data);
+
+      return redirect() -> route('employees.index');
 
     }
     public function destroy($id) {
