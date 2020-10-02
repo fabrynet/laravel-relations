@@ -25,7 +25,7 @@
   <h3>
     Tasks
   </h3>
-  @if ($emp -> tasks)
+  @if ($emp -> tasks -> isNotEmpty())
     <table>
       <thead>
         <th>
@@ -58,6 +58,8 @@
         </tr>
       @endforeach
     </table>
+  @else
+    ---
   @endif
 
   <a href="{{ route('employees.edit', $emp -> id) }}">

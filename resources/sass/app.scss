@@ -9,7 +9,7 @@ $base-color: #636b6f;
 }
 @mixin flex-center-h {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -29,6 +29,14 @@ body {
 
   main {
     @include flex-center-v;
+  }
+
+  form {
+    width: 50%;
+  }
+
+  .form-group {
+    padding: 10px 0;
   }
 
 }
@@ -70,7 +78,4 @@ li > form {
   background-color: transparent;
   border: none;
   color: red;
-}
-.form-group {
-  margin: 10px;
 }

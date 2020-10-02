@@ -20,6 +20,14 @@ body main {
   justify-content: space-between;
 }
 
+body form {
+  width: 50%;
+}
+
+body .form-group {
+  padding: 10px 0;
+}
+
 html,
 body {
   background-color: #fff;
@@ -61,9 +69,5 @@ li > form button {
   background-color: transparent;
   border: none;
   color: red;
-}
-
-.form-group {
-  margin: 10px;
 }
 
