@@ -17,11 +17,11 @@ class CreateEmployeesTable extends Migration
 
             $table -> id();
 
-            $table -> string('firstname');
-            $table -> string('lastname');
+            $table -> string('firstname', 60);
+            $table -> string('lastname', 60);
 
             $table -> date('date_of_birth');
-            $table -> string('private_code');
+            $table -> string('private_code', 15);
 
             $table -> bigInteger('location_id') -> unsigned(); // chiave esterna
 

@@ -20,12 +20,16 @@ body main {
   justify-content: space-between;
 }
 
-body form {
-  width: 50%;
+body main .form-group {
+  padding: 10px 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-body .form-group {
-  padding: 10px 0;
+body main .form-group label {
+  min-width: 100px;
 }
 
 html,
@@ -69,5 +73,11 @@ li > form button {
   background-color: transparent;
   border: none;
   color: red;
+  text-align: center;
+}
+
+td,
+th {
+  padding-right: 10px;
 }
 

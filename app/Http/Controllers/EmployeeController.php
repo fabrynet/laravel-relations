@@ -23,8 +23,17 @@ class EmployeeController extends Controller
       return view('employees.create', compact('locs'));
     }
     public function store(Request $request) {
+
+      $validatedData = $request -> validate([
+        'firstname' => 'bail|required|alpha|max:60',
+        'lastname' => 'required|alpha|max:60',
+        'date_of_birth' => 'required|date',
+        'private_code' => 'required|digits_between:1,15',
+        ]);
+
       Employee::create($request -> all());
       return redirect() -> route('employees.index');
+
     }
     public function edit() {
 

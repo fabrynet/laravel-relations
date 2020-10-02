@@ -29,14 +29,19 @@ body {
 
   main {
     @include flex-center-v;
-  }
 
-  form {
-    width: 50%;
-  }
+    .form-group {
 
-  .form-group {
-    padding: 10px 0;
+      padding: 10px 0;
+
+      @include flex-center-h;
+
+      label {
+        min-width: 100px;
+      }
+
+    }
+
   }
 
 }
@@ -78,4 +83,9 @@ li > form {
   background-color: transparent;
   border: none;
   color: red;
+  text-align: center;
+}
+
+td, th {
+  padding-right: 10px;
 }
