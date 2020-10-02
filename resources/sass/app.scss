@@ -1,1 +1,76 @@
 //
+$base-color: #636b6f;
+
+@mixin flex-center-v {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-center-h {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  width: 100vw;
+  height: 100vh;
+
+  @include flex-center-v;
+
+  main {
+    @include flex-center-v;
+  }
+
+}
+
+html, body {
+    background-color: #fff;
+    color: $base-color;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+}
+
+h1, h2, h3 {
+  margin: 15px 0;
+}
+
+a {
+    color: $base-color;
+    padding: 10px 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+li > form {
+  display: inline-block;
+}
+
+.delete, li > form button {
+  background-color: transparent;
+  border: none;
+  color: red;
+}
+.form-group {
+  margin: 10px;
+}
