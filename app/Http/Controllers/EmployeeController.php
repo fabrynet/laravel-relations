@@ -16,7 +16,9 @@ class EmployeeController extends Controller
     }
     public function show($id) {
       $emp = Employee::findOrFail($id);
-      $tasks = Task::all();
+      $tasks = Task::inRandomOrder()
+                    -> take(rand(5, 10))
+                    -> get();;
       return view('employees.show', compact('emp','tasks'));
     }
     public function create() {
