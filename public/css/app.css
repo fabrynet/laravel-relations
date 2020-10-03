@@ -4,7 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -13,71 +18,99 @@ body {
   justify-content: space-between;
 }
 
-body main {
+html h1,
+html h2,
+html h3,
+body h1,
+body h2,
+body h3 {
+  margin: 15px 0;
+}
+
+html a,
+body a {
+  color: #000000;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+}
+
+.content {
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: space-between;
 }
 
-body main .form-group {
-  padding: 10px 0;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
+.content .form-group label {
+  display: inline-block;
+  width: 120px;
+  margin: 10px 0;
+  font-weight: bold;
 }
 
-body main .form-group label {
-  min-width: 100px;
+.content .form-group input,
+.content .form-group select {
+  width: 200px;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px #000;
 }
 
-html,
-body {
-  background-color: #fff;
+.content ul a,
+.content ol a {
   color: #636b6f;
-  font-family: "Nunito", sans-serif;
-  font-weight: 200;
-}
-
-h1,
-h2,
-h3 {
-  margin: 15px 0;
-}
-
-a {
-  color: #636b6f;
-  padding: 10px 25px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
   letter-spacing: 0.1rem;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
-ul {
+.content ul a:hover,
+.content ol a:hover {
+  color: #000000;
+  transition: 0.2s;
+}
+
+.content ul {
   list-style: none;
 }
 
-button {
+.content button {
   cursor: pointer;
+  padding: 5px 10px;
+  width: 100%;
+  margin: 20px 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
 }
 
-li > form {
-  display: inline-block;
+.content button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
 }
 
-.delete,
-li > form button {
+.content button.delete {
+  margin: 0;
   background-color: transparent;
   border: none;
   color: red;
-  text-align: center;
 }
 
-td,
-th {
+.content button.delete:hover {
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.2);
+  transition: 0.2s;
+}
+
+.content td,
+.content th {
   padding-right: 10px;
 }
 

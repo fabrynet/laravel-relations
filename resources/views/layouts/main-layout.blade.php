@@ -6,11 +6,13 @@
     <link rel="stylesheet" href={{ asset('css/app.css') }}>
   </head>
   <body>
-    
+
     @include('partials.header')
 
     <main>
-      @yield('content')
+      <div class="content">
+        @yield('content')
+      </div>
     </main>
 
     @include('partials.footer')

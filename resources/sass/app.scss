@@ -1,5 +1,6 @@
 //
 $base-color: #636b6f;
+$link: #000000;
 
 @mixin flex-center-v {
   display: flex;
@@ -20,72 +21,32 @@ $base-color: #636b6f;
   box-sizing: border-box;
 }
 
-body {
+html, body {
+
+  background-color: #fff;
+  color: $base-color;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 200;
 
   width: 100vw;
   height: 100vh;
 
   @include flex-center-v;
 
-  main {
-    @include flex-center-v;
+  h1, h2, h3 {
+    margin: 15px 0;
+  }
 
-    .form-group {
-
-      padding: 10px 0;
-
-      @include flex-center-h;
-
-      label {
-        min-width: 100px;
-      }
-
-    }
-
+  a {
+    color: $link;
+    padding: 10px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    // text-transform: uppercase;
   }
 
 }
 
-html, body {
-    background-color: #fff;
-    color: $base-color;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 200;
-}
-
-h1, h2, h3 {
-  margin: 15px 0;
-}
-
-a {
-    color: $base-color;
-    padding: 10px 25px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-li > form {
-  display: inline-block;
-}
-
-.delete, li > form button {
-  background-color: transparent;
-  border: none;
-  color: red;
-  text-align: center;
-}
-
-td, th {
-  padding-right: 10px;
-}
+@import 'partials/content.scss';

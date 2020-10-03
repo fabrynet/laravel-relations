@@ -42,7 +42,8 @@
       <select name="location_id">
         @foreach ($locs as $loc)
           <option value="{{ $loc -> id}}"
-            @if ($loc -> id === $emp -> location_id)
+            @if ($loc -> id === $emp -> location -> id)
+              {{-- $emp -> location -> id ~ $emp -> location_id --}}
               selected
             @endif
             >
