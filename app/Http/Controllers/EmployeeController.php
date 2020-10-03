@@ -16,7 +16,8 @@ class EmployeeController extends Controller
     }
     public function show($id) {
       $emp = Employee::findOrFail($id);
-      return view('employees.show', compact('emp'));
+      $tasks = Task::all();
+      return view('employees.show', compact('emp','tasks'));
     }
     public function create() {
       $locs = Location::all();
@@ -60,5 +61,23 @@ class EmployeeController extends Controller
       $emp = Employee::findOrFail($id);
       $emp -> delete();
       return redirect() -> route('employees.index');
+    }
+    public function assignTask(Request $request, $id) {
+      $data = $request -> all(); // restituisce array
+      $task = $data['task_id'];
+      $emp = Employee::findOrFail($id);
+      if ( !$emp -> tasks() -> find($task) ) {
+        $emp -> tasks() -> attach($task);
+      }
+
+      return redirect() -> route('employees.show', $emp -> id);
+    }
+    public function unassignTask(Request $request, $id) {
+      $data = $request -> all(); // restituisce array
+      $task = $data['task_id'];
+      $emp = Employee::findOrFail($id);
+      $emp -> tasks() -> detach($task);
+
+      return redirect() -> route('employees.show', $emp -> id);
     }
 }

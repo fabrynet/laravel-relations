@@ -33,3 +33,7 @@ Route::put('/employees/{id}/update', 'EmployeeController@update') -> name('emplo
 
 // Employee Delete
 Route::delete('/employees/{id}/destroy', 'EmployeeController@destroy') -> name('employees.destroy');
+
+// Employee tasks
+Route::post('/employees/{id}/assigntask', 'EmployeeController@assignTask') -> name('employees.assigntask');
+Route::delete('/employees/{id}/unassigntask', 'EmployeeController@unassignTask') -> name('employees.unassigntask');

@@ -12,15 +12,19 @@
 
   <ul>
     <li>
-      <b>date of birth:</b> {{ $emp -> date_of_birth }}
+      <b>Date of birth:</b> {{ $emp -> date_of_birth }}
     </li>
     <li>
-      <b>private code:</b> {{ $emp -> private_code }}
+      <b>Private code:</b> {{ $emp -> private_code }}
     </li>
     <li>
-      <b>location:</b> {{ $emp -> location -> name }} ({{ $emp -> location -> city }})
+      <b>Location:</b> {{ $emp -> location -> name }} ({{ $emp -> location -> city }})
     </li>
   </ul>
+
+  <a href="{{ route('employees.edit', $emp -> id) }}">
+    Edit Employee
+  </a>
 
   <h3>
     Tasks
@@ -28,6 +32,7 @@
   @if ($emp -> tasks -> isNotEmpty())
     <table>
       <thead>
+        <th></th>
         <th>
           task
         </th>
@@ -43,6 +48,14 @@
       </thead>
       @foreach ($emp -> tasks as $tas)
         <tr>
+          <td>
+            <form action="{{ route('employees.unassigntask', $emp -> id) }}" method="post">
+              @csrf
+              @method('DELETE')
+              <input type="text" name="task_id" value="{{ $tas -> id}}" hidden>
+              <button class="delete" type="submit" name="button">Unassign</button>
+            </form>
+          </td>
           <td>
             {{ $tas -> name }}
           </td>
@@ -62,9 +75,23 @@
     ---
   @endif
 
-  <a href="{{ route('employees.edit', $emp -> id) }}">
-    Edit Employee
-  </a>
+  <h3>Assign Task</h3>
+  <form class="" action="{{ route('employees.assigntask', $emp -> id) }}" method="post">
+    @csrf
+    @method('POST')
+    <div class="form-group">
+      <label for="task_id">Task</label>
+      <select name="task_id">
+        @foreach ($tasks as $task)
+          <option value="{{ $task -> id}}">
+            {{ $task -> name }}
+            ({{ $task -> description }})
+          </option>
+        @endforeach
+      </select>
+    </div>
+    <button type="submit" name="button">Assign</button>
+  </form>
 
   <form action="{{ route('employees.destroy', $emp -> id) }}" method="post">
     @csrf
