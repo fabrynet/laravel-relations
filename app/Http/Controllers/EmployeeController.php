@@ -32,9 +32,11 @@ class EmployeeController extends Controller
         'lastname' => 'required|alpha|max:60',
         'date_of_birth' => 'required|date',
         'private_code' => 'required|digits_between:1,15',
+        'location_id' => 'required'
         ]);
 
-      Employee::create($request -> all());
+      Employee::create($validatedData);
+
       return redirect() -> route('employees.index');
 
     }
@@ -50,9 +52,10 @@ class EmployeeController extends Controller
         'lastname' => 'required|alpha|max:60',
         'date_of_birth' => 'required|date',
         'private_code' => 'required|digits_between:1,15',
+        'location_id' => 'required'
         ]);
 
-      $data = $request -> all();
+      $data = $validatedData;
       $emp = Employee::findOrFail($id);
       $emp -> update($data);
 
